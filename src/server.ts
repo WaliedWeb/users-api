@@ -1,10 +1,18 @@
 import express from 'express';
-
 const app = express();
 const port = 3000;
 
+app.get('/api/users/:username', (_request, response) => {
+  response.send(_request.params.username);
+});
+
+app.get('/api/users', (_request, response) => {
+  const users = ['Anton', 'Dora', 'Emil'];
+  response.send(users);
+});
+
 app.get('/', (_req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World 🐱‍👤!');
 });
 
 app.listen(port, () => {
